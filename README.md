@@ -92,15 +92,18 @@ Content-Type: application/json
 }
 ```
 
-## Banco H2
+## Acessar o banco H2 pelo navegador
 
-O banco é criado em memória e suas tabelas são gerenciadas pelo JPA. Enquanto a aplicação estiver rodando, acesse o console em `http://localhost:8080/h2-console` com:
+Com a API em execução, abra `http://localhost:8080/h2-console`. Na tela de login, preencha os campos:
 
-- JDBC URL: `jdbc:h2:mem:baozistore`
-- Usuário: `sa`
-- Senha: em branco
+- **Driver Class:** `org.h2.Driver`
+- **JDBC URL:** `jdbc:h2:mem:baozistore`
+- **User Name:** `sa`
+- **Password:** deixe em branco
 
-Os dados são apagados ao encerrar ou reiniciar a aplicação. Cadastre novamente cliente e produto antes de criar pedidos em uma nova execução.
+Não use o JDBC URL padrão `jdbc:h2:~/test`; ele aponta para outro banco e pode exibir a mensagem de que o banco não foi encontrado. O banco configurado para esta API é `jdbc:h2:mem:baozistore`.
+
+O banco é criado em memória e suas tabelas são gerenciadas pelo JPA. Mantenha a aplicação rodando enquanto usar o console. Os dados são apagados ao encerrar ou reiniciar a API; nesse caso, cadastre novamente cliente e produto antes de criar pedidos.
 
 ## Testes
 
